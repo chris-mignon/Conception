@@ -44,7 +44,7 @@
 												
 											
 												<td width="40">
-												<a href="edit_user.php<?php echo '?id='.$id; ?>"  data-toggle="modal" class="btn btn-success"><i class="icon-pencil icon-large"></i></a>
+												<a href="edit_school_year.php<?php echo '?id='.$id; ?>"  data-toggle="modal" class="btn btn-success"><i class="icon-pencil icon-large"></i></a>
 												</td>
 		
 									

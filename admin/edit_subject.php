@@ -125,7 +125,7 @@
 																		term = '$term'
 																		where subject_id = '$get_id' ")or die(mysqli_error());
 																		
-										//mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Edit Subject $subject_code')")or die(mysqli_error());
+										mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Edit Subject $subject_code')")or die(mysqli_error());
 										
 										?>
 										<script>

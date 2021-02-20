@@ -119,7 +119,7 @@
 										mysqli_query($conn,"insert into subject (subject_code,subject_title,category,description,unit,term) values('$subject_code','$title','$category','$description','$unit','$term')")or die(mysqli_error());
 										
 										
-										//mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Add Subject $subject_code')")or die(mysqli_error());
+										mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Add Subject $subject_code')")or die(mysqli_error());
 										
 										
 										?>

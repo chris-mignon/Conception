@@ -36,11 +36,17 @@
 										</thead>
 										<tbody>
 												 <?php
-                                    $teacher_query = mysqli_query($conn,"select teacher.teacher_id, teacher.user_id, teacher.teacher_firstname, teacher.middlename, teacher.teacher_lastname, teacher.picture,school.school_name, user_status.status_name FROM teacher LEFT JOIN school ON teacher.school = school.school_id LEFT JOIN user_status ON teacher.teacher_status = user_status.status_id ") or die(mysqli_error());
+                                    $teacher_query = mysqli_query($conn,"SELECT users.user_id, users.firstname, users.middlename, users.lastname, users.username, users.password, users.user_role, users.user_status,users.picture, teacher.teacher_id, teacher.user_id, teacher.school_id, user_role.role_name, user_status.status_name, school.school_name FROM users 
+                                    LEFT JOIN teacher ON users.user_id = teacher.user_id 
+                                    LEFT JOIN school ON teacher.school_id = school.school_id 
+                                    LEFT JOIN user_role ON users.user_role = user_role.role_id 
+                                    LEFT JOIN user_status ON users.user_status = user_status.status_id 
+                                    WHERE user_role = '3'  ") or die(mysqli_error());
                                     while ($row = mysqli_fetch_array($teacher_query)) {
                                     $id = $row['teacher_id'];                                    
-                                    $firstname = $row['teacher_firstname'];
-                                    $lastname = $row['teacher_lastname'];
+                                    $firstname = $row['firstname'];
+                                    $middlename =$row['middlename'];
+                                    $lastname = $row['lastname'];
                                     $school = $row['school_name'];
                                     $status = $row['status_name'];
                                         ?>

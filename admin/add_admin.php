@@ -52,7 +52,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 
-$query = mysqli_query($conn,"select * from user where user_firstname ='$firstname' and user_lastname ='$lastname' and username ='$username' and password = '$password' ")or die(mysqli_error());
+$query = mysqli_query($conn,"select * from users where firstname ='$firstname' and lastname ='$lastname' and username ='$username' and password = '$password' ")or die(mysqli_error());
 $count = mysqli_num_rows($query);
 
 if ($count > 0){ ?>
@@ -61,9 +61,9 @@ alert('Data Already Exist');
 </script>
 <?php
 }else{
-mysqli_query($conn,"insert into user (user_firstname,user_lastname, username,password,user_role) values('$firstname','$lastname','$username','$password','1')")or die(mysqli_error());
+mysqli_query($conn,"insert into users (firstname,lastname, username,password,user_role, user_status, picture) values('$firstname','$lastname','$username','$password','1','5','uploads/NO-IMAGE-AVAILABLE.jpg')")or die(mysqli_error());
 
-mysqli_query($conn,"insert into activity_log (username,time,action) values('$user_username',NOW(),'Add User $username')")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (username,time,action) values('$user_username',NOW(),'Add Admin User $firstname $lastname')")or die(mysqli_error());
 ?>
 <script>
 window.location = "admin_user.php";

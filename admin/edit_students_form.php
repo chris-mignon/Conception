@@ -1,4 +1,4 @@
-<!-- <?php $get_id = $_GET['id']; ?> -->
+ <?php $get_id = $_GET['id']; ?>
 <div class="row-fluid">
 
        <a href="students.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Student</a>
@@ -9,7 +9,7 @@
         </div>
         <div class="block-content collapse in">
 				<?php
-							$query = mysqli_query($conn,"select student.student_id, student.middlename, student.school, student.student_id, student.class, USER.user_id, USER.user_firstname, USER.user_lastname, USER.username, USER.password, USER.user_status, user_status.status_name, school.school_name, class.class_name FROM student  LEFT JOIN USER ON student.user_id = USER.user_id LEFT JOIN user_status ON student.status = user_status.status_id LEFT JOIN school ON student.school = school.school_id LEFT JOIN class oN student.class = class.class_id where student.student_id ='$get_id'; ")or die(mysqli_error());
+							$query = mysqli_query($conn,"select users.user_id, users.firstname, users.middlename, users.lastname, users.username, users.password, users.user_role, users.user_status,users.picture, student.student_id, student.school_id, student.class_id, class.class_name, user_role.role_name, user_status.status_name, school.school_name FROM users LEFT JOIN student ON users.user_id = student.user_id LEFT JOIN class ON student.class_id = class.class_id LEFT JOIN user_role ON users.user_role = user_role.role_id LEFT JOIN user_status ON users.user_status = user_status.status_id left join school on student.school_id= school.school_id where users.user_id ='$get_id'; ")or die(mysqli_error());
 
 							$row = mysqli_fetch_array($query);
               $user_id= mysqli_fetch_array($query);
@@ -19,7 +19,7 @@
 								
           <div class="control-group">
             <div class="controls">
-              <input name="firstname" value="<?php echo $row['user_firstname']; ?>" class="input focused" id="focusedInput" type="text" placeholder = "First name" required>
+              <input name="firstname" value="<?php echo $row['firstname']; ?>" class="input focused" id="focusedInput" type="text" placeholder = "First name" required>
             </div>
           </div>
 
@@ -31,12 +31,13 @@
 
           <div class="control-group">
              <div class="controls">
-               <input name="lastname" value="<?php echo $row['user_lastname']; ?>" class="input focused" id="focusedInput" type="text" placeholder = "Last name" required>
+               <input name="lastname" value="<?php echo $row['lastname']; ?>" class="input focused" id="focusedInput" type="text" placeholder = "Last name" required>
              </div>
           </div>
 
           <div class="control-group">
               <div class="controls">
+              
                 <input name="username" value="<?php echo $row['username']; ?>" class="input focused" id="focusedInput" type="text" placeholder = "username" required>
               </div>
           </div>
@@ -79,12 +80,13 @@
            </div>
          </div>
 								
-								
+							
 										
           <div class="control-group">
-                                           
+                                     
             <div class="controls">
               <select  name="status" class="" required>
+              
                 <option value="<?php echo $row['status_id']; ?>"><?php echo $row['status_name']; ?></option>
                   <?php
                     $status_query = mysqli_query($conn,"select * from user_status  WHERE status_id BETWEEN 1 AND 2 order by status_name");
@@ -122,14 +124,9 @@
                 $status = $_POST['status'];
       
 
-      mysqli_query($conn,"update student
-       set firstname = '$firstname',
-       middlename = '$middlename'
-       
-       
-        where student_id = '$get_id' ")or die(mysqli_error());
-
-      // mysqli_query($conn, "update user set user_name ='$username' password ='$password' where user_id = '$user_id' ")
+      mysqli_query($conn,"update users, student set users.firstname = '$firstname', users.middlename = '$middlename', users.lastname ='$lastname', users.username = '$username', users.password ='$password', users.user_status = '$status', student.school_id ='$school', student.class_id ='$class' where users.user_id = '$get_id' and student.user_id ='$get_id'  ")or die(mysqli_error());
+       mysqli_query($conn,"insert into activity_log (username,time,action) values ('$user_username', NOW(),' Edit student data $firstname $lastname')")or die(mysqli_error());
+      
       ?>
 
       <script>

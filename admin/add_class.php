@@ -42,6 +42,7 @@ alert('Date Already Exist');
 <?php
 }else{
 mysqli_query($conn,"insert into class (class_name) values('$class_name')")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Add Class $class_name')")or die(mysqli_error());
 ?>
 <script>
 window.location = "class.php";

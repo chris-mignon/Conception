@@ -49,6 +49,7 @@ alert('Data Already Exist');
 <?php
 }else{
 mysqli_query($conn,"insert into school (school_name,principal) values('$school_name','$principal')")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Add School $school_name')")or die(mysqli_error());
 ?>
 <script>
 window.location = "school.php";

@@ -97,7 +97,7 @@
                                 </div>
 								  <!-- Registered students -->
                                 <?php 
-								$query_student = mysqli_query($conn,"select * from users where user_role= '3' and user_status='1'")or die(mysqli_error());
+								$query_student = mysqli_query($conn,"select * from users where user_role= '4' and user_status='1'")or die(mysqli_error());
 								$count_student = mysqli_num_rows($query_student);
 								?>
 								

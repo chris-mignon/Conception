@@ -77,6 +77,7 @@ alert('User Already Exist');
 <?php
 }else{
 mysqli_query($conn,"insert into users (firstname, middlename, lastname, username, password, user_role, user_status,picture) values('$firstname','$middlename','$lastname','$username', '$password','4','2','uploads/NO-IMAGE-AVAILABLE.jpg' )")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (username,time,action) values('$user_username',NOW(),'Add student: $firstname $lastname')")or die(mysqli_error());
 ?>
 <script>
 window.location = "students.php";

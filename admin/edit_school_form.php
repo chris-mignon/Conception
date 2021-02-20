@@ -46,6 +46,7 @@
  $principal = $_POST['principal'];
  
  mysqli_query($conn,"update school set school_name = '$school_name' , principal  = '$principal' where school_id = '$get_id' ")or die(mysqli_error());
+ mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Edit School $school_name')")or die(mysqli_error());
  ?>
  <script>
  window.location='school.php'; 

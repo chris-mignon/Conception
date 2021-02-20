@@ -24,6 +24,8 @@
 										<thead>
 										  <tr>
 												<th></th>
+												<th>User ID</th>
+												<th>photo</th>
 												<th>Firstname</th>
 												<th>Lastname</th>
 												<th>Username</th>
@@ -34,7 +36,7 @@
 										</thead>
 										<tbody>
 													<?php
-													$user_query = mysqli_query($conn,"select * from user where user_role='1'" )or die(mysqli_error());
+													$user_query = mysqli_query($conn,"select * from users where user_role='1'" )or die(mysqli_error());
 													while($row = mysqli_fetch_array($user_query)){
 													$id = $row['user_id'];
 													?>
@@ -43,8 +45,10 @@
 												<td width="30">
 												<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 												</td>
-												<td><?php echo $row['user_firstname']; ?></td>
-												<td> <?php echo $row['user_lastname']; ?></td>
+												<td width="40"><img class="img-circle" src="<?php echo $row['picture']; ?>" height="40" width="40"></td>
+												<td><?php echo $row['user_id']; ?></td>
+												<td><?php echo $row['firstname']; ?></td>
+												<td> <?php echo $row['lastname']; ?></td>
 	
 												<td><?php echo $row['username']; ?></td>
 												<td><?php echo $row['password']; ?></td>
