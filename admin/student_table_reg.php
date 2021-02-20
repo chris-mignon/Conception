@@ -31,7 +31,7 @@
 		<tbody>
 			
 		<?php
-	$query = mysqli_query($conn,"SELECT student.student_id, student.user_id, student.firstname, student.lastname, school.school_name, class.class_name, user_status.status_name FROM student LEFT JOIN school ON student.school = school.school_id LEFT JOIN user_status ON student.status = user_status.status_id LEFT JOIN class ON student.class= class.class_id where student.status = '1'") or die(mysqli_error());
+	$query = mysqli_query($conn,"SELECT users.user_id, users.firstname, users.middlename, users.lastname, users.username, users.password, users.user_role, users.user_status, student.student_id, student.school_id, student.class_id, class.class_name, user_role.role_name, user_status.status_name, school.school_name FROM users LEFT JOIN student ON users.user_id = student.user_id LEFT JOIN class ON student.class_id = class.class_id LEFT JOIN user_role ON users.user_role = user_role.role_id LEFT JOIN user_status ON users.user_status = user_status.status_name left join school on student.school_id= school.school_name WHERE user_role = '4' and user_status = '1'") or die(mysqli_error());
 	while ($row = mysqli_fetch_array($query)) {
 		$id = $row['student_id'];
 		$firstname = $row['firstname'];

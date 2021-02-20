@@ -29,10 +29,17 @@
 											<input type="text" class="span8" name="title" id="inputPassword" placeholder="Subject Title" required>
 											</div>
 										</div>
+
 										<div class="control-group">
 											<label class="control-label" for="inputPassword">Number of Units</label>
 											<div class="controls">
-											<input type="text" class="span1" name="unit" id="inputPassword" required>
+											<select name ="unit" class= "" placeholder="Subject Title"required > 
+											<option> </option>
+											<option value ="1"> 1</option>
+											<option value ="2">2 </option>
+											<option value ="3">3 </option>
+											<option value ="4">4 </option>
+											 </select>
 											</div>
 										</div>
 											
@@ -42,7 +49,7 @@
 									<label class= "control-label">Category:</label>
 									<div class="controls">
 									<select name="category"  class="" required>
-										<option></option>
+										<option> </option>
 										<?php
 										$query = mysqli_query($conn,"select * from category order by category_name");
 										while($row = mysqli_fetch_array($query)){
@@ -61,7 +68,7 @@
 									<select name="term"  class="" required>
 										<option></option>
 										<?php
-										$query = mysqli_query($conn,"select * from term order by term_name");
+										$query = mysqli_query($conn,"select * from term order by term_id");
 										while($row = mysqli_fetch_array($query)){
 											
 											?>

@@ -25,7 +25,9 @@
                             </div>
                         </div>
                         <!-- /block -->
-                    </div><?php
+                    </div>
+                    
+                    <?php
 if (isset($_POST['save'])){
 $class_name = $_POST['class_name'];
 

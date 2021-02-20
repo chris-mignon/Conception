@@ -34,7 +34,7 @@
 
 								
 								<?php 
-								$query_teacher = mysqli_query($conn,"select * from teacher")or die(mysqli_error());
+								$query_teacher = mysqli_query($conn,"select * from users where user_role = '3'")or die(mysqli_error());
 								$count_teacher = mysqli_num_rows($query_teacher);
 								?>
 								
@@ -48,7 +48,7 @@
 								
 
                                 <?php 
-								$query_student = mysqli_query($conn,"select * from student")or die(mysqli_error());
+								$query_student = mysqli_query($conn,"select * from users where user_role ='4'")or die(mysqli_error());
 								$count_student = mysqli_num_rows($query_student);
 								?>
 								
@@ -85,19 +85,19 @@
 
                             <!-- Registered teachers -->
                                 <?php 
-								$query_reg_teacher = mysqli_query($conn,"select * from teacher where teacher_status = '3' ")or die(mysqli_error());
+								$query_reg_teacher = mysqli_query($conn,"select * from users where user_role ='3' and user_status = '3' ")or die(mysqli_error());
 								$count_reg_teacher = mysqli_num_rows($query_reg_teacher);
 								?>
 								
                                 <div class="span3">
                                     <div class="chart" data-percent="<?php echo $count_reg_teacher; ?>"><?php echo $count_reg_teacher; ?></div>
-                                    <div class="chart-bottom-heading"><strong>Registered Teacher</strong>
+                                    <div class="chart-bottom-heading"><strong>Active Teachers</strong>
 
                                     </div>
                                 </div>
 								  <!-- Registered students -->
                                 <?php 
-								$query_student = mysqli_query($conn,"select * from student where status='1'")or die(mysqli_error());
+								$query_student = mysqli_query($conn,"select * from users where user_role= '3' and user_status='1'")or die(mysqli_error());
 								$count_student = mysqli_num_rows($query_student);
 								?>
 								

@@ -24,6 +24,7 @@
 									?>
 									
 									    <form class="form-horizontal" method="post">
+
 										<div class="control-group">
 											<label class="control-label" for="inputEmail">Subject Code</label>
 											<div class="controls">
@@ -40,7 +41,13 @@
 										<div class="control-group">
 											<label class="control-label" for="inputPassword">Number of Units</label>
 											<div class="controls">
-											<input type="text" value="<?php echo $row['unit']; ?>" class="span1" name="unit" id="inputPassword" required>
+											<select name ="unit" class= "" placeholder="Subject Title"required > 
+											<option> </option>
+											<option value ="1"> 1</option>
+											<option value ="2">2 </option>
+											<option value ="3">3 </option>
+											<option value ="4">4 </option>
+											 </select>
 											</div>
 										</div>
 
