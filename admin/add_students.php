@@ -8,40 +8,79 @@
                                 <div class="span12">
 								<form id="add_student" method="post">
 								
-								        <div class="control-group">
+								<div class="control-group">
+            <div class="controls">
+              <input name="firstname"  class="input focused" id="focusedInput" type="text" placeholder = "First name" required>
+            </div>
+          </div>
+
+            
+          <div class="control-group">
+             <div class="controls">
+               <input name="lastname"  class="input focused" id="focusedInput" type="text" placeholder = "Last name" required>
+             </div>
+          </div>
+
+          <div class="control-group">
+              <div class="controls">
+                <input name="username"  class="input focused" id="focusedInput" type="text" placeholder = "username" required>
+              </div>
+          </div>
+
+                                        
+          <div class="control-group">
+              <div class="controls">
+               <input name="password"  class="input focused" id="focusedInput" type="text" placeholder = "password" required>
+              </div>
+          </div>
+
+
+
+          <div class="control-group">
                                    
-                                          <div class="controls">
-                                            <select  name="class_id" class="" required>
-                                             	<option></option>
+              <div class="controls">
+                <select  name="school" class="" required>
+              
+                <?php
+                $school_query = mysqli_query($conn,"select * from school order by school_name");
+                               while($school_row = mysqli_fetch_array($school_query)){
+                              ?>
+               <option value="<?php echo $school_row['school_id']; ?>"><?php echo $school_row['school_name']; ?></option>
+               <?php } ?>
+                </select>
+              </div>
+          </div>
+                            
+					<div class="control-group">                        
+          <div class="controls">
+            <select  name="class" class="" required>
+            
 											<?php
-											$cys_query = mysqli_query($conn,"select * from class order by class_name");
-											while($cys_row = mysqli_fetch_array($cys_query)){
-											
+											 $class_query = mysqli_query($conn,"select * from class order by class_name");
+										  while($class_row = mysqli_fetch_array($class_query)){
 											?>
-											<option value="<?php echo $cys_row['class_id']; ?>"><?php echo $cys_row['class_name']; ?></option>
-											<?php } ?>
-                                            </select>
-                                          </div>
-                                        </div>
+						  <option value="<?php echo $class_row['class_id']; ?>"><?php echo $class_row['class_name']; ?></option>
+					  	 <?php } ?>
+             </select>
+           </div>
+         </div>
 								
-										<div class="control-group">
-                                          <div class="controls">
-                                            <input name="un" class="input focused" id="focusedInput" type="text" placeholder = "ID Number" required>
-                                          </div>
-                                        </div>
-										
-										<div class="control-group">
-                                          <div class="controls">
-                                            <input name="fn" class="input focused" id="focusedInput" type="text" placeholder = "Firstname" required>
-                                          </div>
-                                        </div>
-										
-										<div class="control-group">
-                                          <div class="controls">
-                                            <input  name="ln" class="input focused" id="focusedInput" type="text" placeholder = "Lastname" required>
-                                          </div>
-                                        </div>
 								
+										
+          <div class="control-group">
+                                           
+            <div class="controls">
+              <select  name="status" class="" required>
+                
+                  <?php
+                    $status_query = mysqli_query($conn,"select * from user_status  WHERE status_id BETWEEN 1 AND 2 order by status_name");
+                    while($status_row = mysqli_fetch_array($status_query)){
+                   ?>
+               <option value="<?php echo $status_row['status_id']; ?>"><?php echo $status_row['status_name']; ?></option>
+               <?php } ?>
+              </select>
+           </div>
+        </div>
 										
 											<div class="control-group">
                                           <div class="controls">

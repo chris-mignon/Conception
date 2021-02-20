@@ -3,15 +3,13 @@
     <head>
         <title>Conception</title>
 		<link rel="shortcut icon" type="image/png" href="admin/images/favicon.png"/>
-       
-			<!-- <link href="images/logo.png" rel="icon" type="image"> -->
-			<link href="admin/images/favicon.ico" rel="icon" type="image">
-			<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-			<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-			<link href="bootstrap/css/font-awesome.css" rel="stylesheet" media="screen">
-			<link href="bootstrap/css/my_style.css" rel="stylesheet" media="screen">
-			<link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
-			<link href="assets/styles.css" rel="stylesheet" media="screen">
+		<link href="images/favicon.png" rel="icon" type="image">
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+		<link href="bootstrap/css/font-awesome.css" rel="stylesheet" media="screen">
+		<link href="bootstrap/css/my_style.css" rel="stylesheet" media="screen">
+		<link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+		<link href="assets/styles.css" rel="stylesheet" media="screen">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

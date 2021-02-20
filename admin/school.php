@@ -4,9 +4,9 @@
 		<?php include('navbar.php'); ?>
         <div class="container-fluid">
             <div class="row-fluid">
-				<?php include('department_sidebar.php'); ?>
+				<?php include('school_sidebar.php'); ?>
 				<div class="span3" id="adduser">
-				<?php include('add_department.php'); ?>		   			
+				<?php include('add_school.php'); ?>		   			
 				</div>
                 <div class="span6" id="">
                      <div class="row-fluid">
@@ -17,9 +17,9 @@
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
-									<form action="delete_department.php" method="post">
+									<form action="delete_school.php" method="post">
   									<table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
-									<a data-toggle="modal" href="#department_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
+									<a data-toggle="modal" href="#school_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
 									<?php include('modal_delete.php'); ?>
 										<thead>
 										  <tr>
@@ -32,19 +32,19 @@
 										</thead>
 										<tbody>
 													<?php
-													$user_query = mysqli_query($conn,"select * from department")or die(mysqli_error());
+													$user_query = mysqli_query($conn,"select * from school")or die(mysqli_error());
 													while($row = mysqli_fetch_array($user_query)){
-													$id = $row['department_id'];
+													$id = $row['school_id'];
 													?>
 									
 													<tr>
 														<td width="30">
 														<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 														</td>
-														<td><?php echo $row['department_name']; ?></td>
-														<td><?php echo $row['dean']; ?></td>
+														<td><?php echo $row['school_name']; ?></td>
+														<td><?php echo $row['principal']; ?></td>
 												
-														<td width="30"><a href="edit_department.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil icon-large"></i></a></td>
+														<td width="30"><a href="edit_school.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil icon-large"></i></a></td>
 
                                
 													</tr>

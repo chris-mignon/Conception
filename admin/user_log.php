@@ -19,27 +19,39 @@
 								
 										<thead>
 										  <tr>
-												<th>Date Login</th>
-												<th>Date logout</th>
-												<th>Username</th>
-												
-											
+										  <th>Log #</th>
+										<th>Login time</th>
+										<th>Logout time</th>
+										<th>First name</th>
+										<th>Last name</th>	
+										<th>User ID</th>
+										<th>Role</th>	
 										   </tr>
 										</thead>
 										<tbody>
-													<?php
-													$user_query = mysqli_query($conn,"select * from user_log order by user_log_id ")or die(mysqli_error());
-													while($row = mysqli_fetch_array($user_query)){
-													$id = $row['user_log_id'];
-													?>
+										<?php
+										$user_query = mysqli_query($conn,"select users_log.log_id, users_log.login_time, users_log.logout_time, users_log.user, USER.user_firstname, USER.user_lastname, USER.user_role, user_roles.role_name FROM users_log LEFT JOIN USER ON users_log.user = USER.user_id LEFT JOIN user_roles ON USER.user_role = user_roles.role_id ORDER by users_log.log_id ")or die(mysqli_error());
+										while($row = mysqli_fetch_array($user_query)){
+										$id = $row['log_id'];
+										$logintime =$row['login_time'];
+										$logouttime =$row['logout_time'];
+										$firstname =$row['user_firstname'];
+										$lastname =$row['user_lastname'];
+										$userid =$row['user'];
+										$role =$row['role_name'];
+										
+										?>
 									
-												<tr>
-											
-												<td><?php echo $row['login_date']; ?></td>
-												<td><?php echo $row['logout_date']; ?></td>
-												<td><?php echo $row['username']; ?></td>
-												</tr>
-												<?php } ?>
+									<tr>
+									<td><?php echo $id; ?></td>
+									<td><?php echo $logintime; ?></td>
+									<td><?php echo $logouttime; ?></td>
+									<td><?php echo $firstname; ?></td>
+									<td><?php echo $lastname; ?></td>
+									<td><?php echo $userid ?></td>
+									<td><?php echo $role; ?></td>
+									</tr>
+									<?php } ?>
 										</tbody>
 									</table>
                                 </div>

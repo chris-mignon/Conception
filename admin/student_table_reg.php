@@ -18,21 +18,27 @@
 	<?php include('modal_delete.php'); ?>
 		<thead>
 		<tr>
-					<th></th>
+		<th></th>
 				
-					<th>Name</th>
-					<th>ID Number</th>
-			
-					<th>Course Yr & Section</th>
-					<th></th>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>school</th>
+				<th>class</th>
+				<th>Status</th>
+				<th></th>
 		</tr>
 		</thead>
 		<tbody>
 			
 		<?php
-	$query = mysqli_query($conn,"select * from student LEFT JOIN class ON student.class_id = class.class_id where status = 'Registered' ORDER BY student.student_id DESC") or die(mysqli_error());
+	$query = mysqli_query($conn,"SELECT student.student_id, student.user_id, student.firstname, student.lastname, school.school_name, class.class_name, user_status.status_name FROM student LEFT JOIN school ON student.school = school.school_id LEFT JOIN user_status ON student.status = user_status.status_id LEFT JOIN class ON student.class= class.class_id where student.status = '1'") or die(mysqli_error());
 	while ($row = mysqli_fetch_array($query)) {
 		$id = $row['student_id'];
+		$firstname = $row['firstname'];
+		$lastname = $row['lastname'];
+		$school = $row['school_name'];
+		$class = $row['class_name'];
+		$status = $row['status_name'];
 		?>
 	
 		<tr>
@@ -40,10 +46,11 @@
 		<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 		</td>
 	
-		<td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 
-		<td><?php echo $row['username']; ?></td> 
-	
-		<td width="100"><?php echo $row['class_name']; ?></td> 
+		<td><?php echo $firstname; ?></td> 
+		<td><?php echo $lastname; ?></td> 
+		<td><?php echo $school; ?></td>
+		<td><?php echo $class; ?></td>
+		<td><?php echo $status; ?></td>
 	
 		<td width="30"><a href="edit_student.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil"></i> </a></td>
 	

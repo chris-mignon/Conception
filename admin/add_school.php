@@ -1,33 +1,28 @@
    <div class="row-fluid">
-    <a href="department.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Department</a>
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Edit School</div>
+                                <div class="muted pull-left">Add School</div>
                             </div>
-							<?php 
-							$query = mysqli_query($conn,"select * from department where department_id = '$get_id'")or die(mysqli_error());
-							$row = mysqli_fetch_array($query);
-							?>
                             <div class="block-content collapse in">
                                 <div class="span12">
 								<form method="post">
 										<div class="control-group">
                                           <div class="controls">
-                                            <input class="input focused" value="<?php echo $row['department_name']; ?>" id="focusedInput" name="d" type="text" placeholder = "Deparment">
+                                            <input class="input focused" id="focusedInput" name="school_name" type="text" placeholder = "School Name">
                                           </div>
                                         </div>
 										
 										<div class="control-group">
                                           <div class="controls">
-                                            <input class="input focused" value="<?php echo $row['dean']; ?>" id="focusedInput" name="dn" type="text" placeholder = "Person Incharge">
+                                            <input class="input focused" id="focusedInput" name="principal" type="text" placeholder = "Principal">
                                           </div>
                                         </div>
 								
 										
 											<div class="control-group">
                                           <div class="controls">
-												<button name="update" class="btn btn-success"><i class="icon-save icon-large"></i></button>
+												<button name="save" class="btn btn-info"><i class="icon-plus-sign icon-large"></i></button>
 
                                           </div>
                                         </div>
@@ -38,19 +33,27 @@
                         <!-- /block -->
                     </div>
 					
- <?php
- if (isset($_POST['update'])){
- 
+					<?php
+if (isset($_POST['save'])){
+$principal = $_POST['principal'];
+$school_name = $_POST['school_name'];
 
- $dn = $_POST['dn'];
- $d = $_POST['d'];
- 
- mysqli_query($conn,"update department set department_name = '$dn' , dean  = '$d' where department_id = '$get_id' ")or die(mysqli_error());
- ?>
- <script>
- window.location='department.php'; 
- </script>
- <?php 
- }
- ?>
- 
+
+$query = mysqli_query($conn,"select * from school where school_name = '$school_name' and principal = '$principal' ")or die(mysqli_error());
+$count = mysqli_num_rows($query);
+
+if ($count > 0){ ?>
+<script>
+alert('Data Already Exist');
+</script>
+<?php
+}else{
+mysqli_query($conn,"insert into school (school_name,principal) values('$school_name','$principal')")or die(mysqli_error());
+?>
+<script>
+window.location = "school.php";
+</script>
+<?php
+}
+}
+?>

@@ -6,7 +6,7 @@
             <div class="row-fluid">
 				<?php include('admin_sidebar.php'); ?>
 				<div class="span3" id="adduser">
-				<?php include('add_user.php'); ?>		   			
+				<?php include('add_admin.php'); ?>		   			
 				</div>
                 <div class="span6" id="">
                      <div class="row-fluid">
@@ -19,20 +19,22 @@
                                 <div class="span12">
 								<form action="delete_users.php" method="post">
   									<table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
-									<a data-toggle="modal" href="#user_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
+									<a data-toggle="modal" href="#Admin_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
 									<?php include('modal_delete.php'); ?>
 										<thead>
 										  <tr>
 												<th></th>
-												<th>Name</th>
+												<th>Firstname</th>
+												<th>Lastname</th>
 												<th>Username</th>
+												<th>password</th>
 											
 												<th></th>
 										   </tr>
 										</thead>
 										<tbody>
 													<?php
-													$user_query = mysqli_query($conn,"select * from users")or die(mysqli_error());
+													$user_query = mysqli_query($conn,"select * from user where user_role='1'" )or die(mysqli_error());
 													while($row = mysqli_fetch_array($user_query)){
 													$id = $row['user_id'];
 													?>
@@ -41,9 +43,12 @@
 												<td width="30">
 												<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 												</td>
-												<td><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></td>
+												<td><?php echo $row['user_firstname']; ?></td>
+												<td> <?php echo $row['user_lastname']; ?></td>
 	
 												<td><?php echo $row['username']; ?></td>
+												<td><?php echo $row['password']; ?></td>
+											
 											
 												<td width="40">
 												<a href="edit_user.php<?php echo '?id='.$id; ?>"  data-toggle="modal" class="btn btn-success"><i class="icon-pencil icon-large"></i></a>

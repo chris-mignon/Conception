@@ -25,33 +25,39 @@
 										    <tr>
                                     <th></th>
                                     <th>Photo</th>
-                                    <th>Name</th>
-                                    <th>Username</th>
-
+                                    <th> ID </th>
+                                    <th>First Name</th>
+                                    <th>Last name</th>
+                                    <th>School</th>
+                                    <th>Status</th>
                                     <th></th>
                                 </tr>
 										</thead>
 										<tbody>
 												 <?php
-                                    $teacher_query = mysqli_query($conn,"select * from teacher") or die(mysqli_error());
+                                    $teacher_query = mysqli_query($conn,"select teacher.teacher_id, teacher.user_id, teacher.teacher_firstname, teacher.middlename, teacher.teacher_lastname, teacher.picture,school.school_name, user_status.status_name FROM teacher LEFT JOIN school ON teacher.school = school.school_id LEFT JOIN user_status ON teacher.teacher_status = user_status.status_id ") or die(mysqli_error());
                                     while ($row = mysqli_fetch_array($teacher_query)) {
                                     $id = $row['teacher_id'];
-                                    $teacher_stat = $row['teacher_stat'];
+                                    $firstname = $row['teacher_firstname'];
+                                    $lastname = $row['teacher_lastname'];
+                                    $school = $row['school_name'];
+                                    $status = $row['status_name'];
                                         ?>
 									<tr>
 										<td width="30">
 										<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 										</td>
-                                    <td width="40"><img class="img-circle" src="<?php echo $row['location']; ?>" height="50" width="50"></td> 
-                                    <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 
-                                    <td><?php echo $row['username']; ?></td> 
+                                    <td width="40"><img class="img-circle" src="<?php echo $row['picture']; ?>" height="50" width="50"></td> 
+                                    <td><?php echo $id;?></td> 
+                                    <td><?php echo $firstname; ?></td> 
+                                    <td><?php echo $lastname; ?></td> 
+                                    <td><?php echo $school; ?></td> 
+                                    <td><?php echo $status; ?></td> 
                                
 									<td width="50"><a href="edit_teacher.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil"></i></a></td>
-									<?php if ($teacher_stat == 'Activated' ){ ?>
-									<td width="120"><a href="de_activate.php<?php echo '?id='.$id; ?>" class="btn btn-danger"><i class="icon-remove"></i> Deactivate</a></td>
-									<?php }else{ ?>
-									<td width="120"><a href="edit_teacher.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-check"></i> Activated</a></td>				
-									<?php } ?>
+
+													
+									
                                 </tr>
                             <?php } ?>
                                
