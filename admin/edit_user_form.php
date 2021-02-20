@@ -29,6 +29,12 @@
                                             <input class="input focused" value="<?php echo $row['username']; ?>"  name="username" id="focusedInput" type="text" placeholder = "Username" required>
                                           </div>
                                         </div>
+
+                                        <div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" value="<?php echo $row['password']; ?>"  name="password" id="focusedInput" type="text" placeholder = "Password" required>
+                                          </div>
+                                        </div>
 										
 								
 										
@@ -50,11 +56,11 @@ if (isset($_POST['update'])){
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $username = $_POST['username'];
+$password = $_POST['password'];
 
+mysqli_query($conn,"update users set firstname = '$firstname', lastname = '$lastname', username = '$username', password = '$password' where user_id = '$get_id' ")or die(mysqli_error());
 
-mysqli_query($conn,"update users set username = '$username'  , firstname = '$firstname' , lastname = '$lastname' where user_id = '$get_id' ")or die(mysqli_error());
-
-mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Edit User $username')")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (username,time,action) values( '$user_username',NOW(),'Edit user information for: $username')")or die(mysqli_error());
 ?>
 <script>
   window.location = "admin_user.php"; 

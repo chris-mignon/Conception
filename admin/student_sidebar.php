@@ -11,7 +11,7 @@
                             <a href="admin_user.php"><i class="icon-chevron-right"></i><i class="icon-user"></i> Admin Users</a>
                         </li>
 						<li>
-                            <a href="department.php"><i class="icon-chevron-right"></i><i class="icon-building"></i> Schools</a>
+                            <a href="school.php"><i class="icon-chevron-right"></i><i class="icon-building"></i> Schools</a>
                         </li>
 						<li  class="active">
                             <a href="students.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Students</a>

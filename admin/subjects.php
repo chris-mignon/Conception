@@ -25,13 +25,14 @@
 											    <th></th>
 												<th>Subject Code</th>
 												<th>Subject Title</th>
+												<th>Category </th>
 												<th></th>
 										   </tr>
 										</thead>
 										<tbody>
 											
 												<?php
-											$subject_query = mysqli_query($conn,"select * from subject")or die(mysqli_error());
+											$subject_query = mysqli_query($conn,"select subject.subject_id, subject.subject_code, subject.subject_title, category.category_name FROM subject LEFT JOIN category ON subject.category= category.category_id")or die(mysqli_error());
 											while($row = mysqli_fetch_array($subject_query)){
 											$id = $row['subject_id'];
 											?>
@@ -42,6 +43,7 @@
 													</td>
 													<td><?php echo $row['subject_code']; ?></td>
 													<td><?php echo $row['subject_title']; ?></td>
+													<td><?php echo $row['category_name']; ?></td>
 												
 													<td width="30"><a href="edit_subject.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil"></i> </a></td>
 										</tr>
