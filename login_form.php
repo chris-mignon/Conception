@@ -20,17 +20,25 @@ type: "POST",
 url: "login.php",
 data: formData,
 success: function(html){
-if(html=='true')
+if(html=='true_teacher')
 {
 $.jGrowl("Loading File Please Wait......", { sticky: true });
 $.jGrowl("Welcome to Conception Learning Management System", { header: 'Access Granted' });
-var delay = 2000;
+var delay = 1000;
 setTimeout(function(){ window.location = 'dasboard_teacher.php'  }, delay);  
 }else if (html == 'true_student'){
 $.jGrowl("Welcome to Conception Learning Management System", { header: 'Access Granted' });
-var delay = 2000;
+var delay = 1000;
 setTimeout(function(){ window.location = 'student_notification.php'  }, delay);  
-}else
+}
+
+else if (html == 'true_admin'){
+    $.jGrowl("Loading File Please Wait......", { sticky: true });
+$.jGrowl("Welcome to Conception Learning Management System", { header: 'Administrator Access Granted' });
+var delay = 1000;
+setTimeout(function(){ window.location = 'admin/dashboard.php'  }, delay);
+}
+else
 {
 $.jGrowl("Please Check your username and Password", { header: 'Login Failed' });
 }
