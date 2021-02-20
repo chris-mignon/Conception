@@ -9,7 +9,7 @@
 							<div class="row-fluid">
 
 						<div class="span4">
-						<img class="index_logo" src="admin/images/logg.png">
+						<img class="index_logo" src="admin/images/Logo.png">
 						</div>	
 						<div class="span8">
 						
