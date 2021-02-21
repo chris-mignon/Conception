@@ -18,12 +18,12 @@
 			$_SESSION['id']=$row['user_id'];
 			echo 'true_admin';
 			}
-			else if( $role ==2)
+			else if( $role ==3)
 			{
 				$_SESSION['id']=$row['user_id'];
 			echo 'true_teacher';
 			}
-			else if($role== 3)
+			else if($role== 4)
 			{
 				$_SESSION['id']=$row['user_id'];
 			echo 'true_student';
