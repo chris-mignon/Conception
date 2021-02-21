@@ -1,5 +1,5 @@
 <?php
-		include('admin/dbcon.php');
+		include('dbcon.php');
 		session_start();
 		$username = $_POST['username'];
 		$password = $_POST['password'];
@@ -18,18 +18,18 @@
 			$_SESSION['id']=$row['user_id'];
 			echo 'true_admin';
 			}
-			else if( $role ==3)
+			else if( $role ==2)
 			{
 				$_SESSION['id']=$row['user_id'];
 			echo 'true_teacher';
 			}
-			else if($role== 4)
+			else if($role== 3)
 			{
 				$_SESSION['id']=$row['user_id'];
 			echo 'true_student';
 			}
 
-			//mysqli_query($conn,"insert into user_log (login_time,user)values(NOW(),".$row['user_id'].")")or die(mysqli_error());
+			mysqli_query($conn,"insert into user_log (login_time,user)values(NOW(),".$row['user_id'].")")or die(mysqli_error());
 		
 		 }else{ 
 				echo 'false';

@@ -12,7 +12,7 @@
 				</a>
 			</li>
 			<?php
-			$message_query = mysqli_query($conn,"select * from message where reciever_id = '$session_id' ")or die(mysqli_error());
+			$message_query = mysqli_query($conn,"select * from message where reciever_id = '$session_id' and message_status != 'read' ")or die(mysqli_error());
 			$count_message = mysqli_num_rows($message_query);
 			?>
 			<li class="">
