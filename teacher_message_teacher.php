@@ -38,10 +38,7 @@
 										</ul>
 										
 									<?php
-								 $query_announcement = mysqli_query($conn,"select * from message
-																	LEFT JOIN teacher ON teacher.teacher_id = message.sender_id
-																	where  message.reciever_id = '$session_id' order by date_sended DESC
-																	")or die(mysqli_error());
+								 $query_announcement = mysqli_query($conn,"select * from message where reciever_id = '$session_id' order by date_sended DESC ")or die(mysqli_error());
 								 while($row = mysqli_fetch_array($query_announcement)){
 								 $id = $row['message_id'];
 								 ?>
@@ -52,7 +49,7 @@
 											
 													<hr>
 											Send by: <strong><?php echo $row['sender_name']; ?></strong>
-											<i class="icon-calendar"></i> <?php echo $row['date_sended']; ?>
+											<i class="icon-calendar"></i> <?php echo $row['date_sent']; ?>
 													<div class="pull-right">
 													<a class="btn btn-link"  href="#<?php echo $id; ?>" data-toggle="modal" ><i class="icon-remove"></i> Remove </a>
 													<?php include("remove_inbox_message_modal.php"); ?>
