@@ -4,9 +4,7 @@
 
 
                <!--  -->
-                        <li >
-                            <a href="users.php"><i class="icon-chevron-right"></i><i class="icon-list-alt"></i> Users</a>
-                        </li>
+                       
                         <!--  -->
                               <li class= "active">
                             <a href="admin_user.php"><i class="icon-chevron-right"></i><i class="icon-user"></i> Admin Users</a>

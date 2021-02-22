@@ -4,13 +4,11 @@
 
 
                <!--  -->
-                        <li>
-                            <a href="users.php"><i class="icon-chevron-right"></i><i class="icon-list-alt"></i> Users</a>
-                        </li>
-                        <!--  -->
-                              <li>
+               <li >
                             <a href="admin_user.php"><i class="icon-chevron-right"></i><i class="icon-user"></i> Admin Users</a>
                         </li>
+                        <!--  -->
+                            
                         <!--  -->
                         <li>
                             <a href="teachers.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Teachers</a>
