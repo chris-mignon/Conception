@@ -10,7 +10,7 @@
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Assignment File Uploaded List</div>
+                                <div class="muted pull-left">Activity logs</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
@@ -19,7 +19,7 @@
 										<thead>
 										        <tr>
 
-												<th>Date</th>
+												<th>Time</th>
 												<th>User</th>
 												<th>Action</th>
 									
@@ -38,7 +38,7 @@
                               
 										<tr>
 
-                                         <td><?php  echo $row['date']; ?></td>
+                                         <td><?php  echo $row['time']; ?></td>
                                          <td><?php echo $row['username']; ?></td>
                                          <td><?php echo $row['action']; ?></td>
                                   

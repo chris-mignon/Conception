@@ -24,6 +24,7 @@
 									?>
 									
 									    <form class="form-horizontal" method="post">
+
 										<div class="control-group">
 											<label class="control-label" for="inputEmail">Subject Code</label>
 											<div class="controls">
@@ -36,12 +37,56 @@
 											<input type="text" value="<?php echo $row['subject_title']; ?>" class="span8" name="title" id="inputPassword" placeholder="Subject Title" required>
 											</div>
 										</div>
+
 										<div class="control-group">
 											<label class="control-label" for="inputPassword">Number of Units</label>
 											<div class="controls">
-											<input type="text" value="<?php echo $row['unit']; ?>" class="span1" name="unit" id="inputPassword" required>
+											<select name ="unit" class= "" placeholder="Subject Title"required > 
+											<option> </option>
+											<option value ="1"> 1</option>
+											<option value ="2">2 </option>
+											<option value ="3">3 </option>
+											<option value ="4">4 </option>
+											 </select>
 											</div>
 										</div>
+
+
+
+										<div class="control-group">
+									<label class= "control-label">Category:</label>
+									<div class="controls">
+									<select name="category"  class="" required>
+										<option></option>
+										<?php
+										$query = mysqli_query($conn,"select * from category order by category_name");
+										while($row = mysqli_fetch_array($query)){
+											
+											?>
+											<option value="<?php echo $row['category_id']; ?>"><?php echo $row['category_name']; ?></option>
+										<?php } ?>
+											</select>
+											</div>
+											</div>
+
+												
+										<div class="control-group">
+									<label class= "control-label">Term:</label>
+									<div class="controls">
+									<select name="term"  class="" required>
+										<option></option>
+										<?php
+										$query = mysqli_query($conn,"select * from term order by term_name");
+										while($row = mysqli_fetch_array($query)){
+											
+											?>
+											<option value="<?php echo $row['term_id']; ?>"><?php echo $row['term_name']; ?></option>
+										<?php } ?>
+											</select>
+											</div>
+											</div>
+
+										
 										<div class="control-group">
 											<label class="control-label" for="inputPassword">Description</label>
 											<div class="controls">
@@ -65,18 +110,22 @@
 										if (isset($_POST['update'])){
 										$subject_code = $_POST['subject_code'];
 										$title = $_POST['title'];
-										$unit = $_POST['unit'];
+										$category = $_POST['category'];
 										$description = $_POST['description'];
+										$unit = $_POST['unit'];
+										$term = $_POST['term'];
 										
 										
 									
 										mysqli_query($conn,"update subject set subject_code = '$subject_code' ,
 																		subject_title = '$title',
+																		category ='$category',
+																		description = '$description',
 																		unit  = '$unit',
-																		description = '$description'
+																		term = '$term'
 																		where subject_id = '$get_id' ")or die(mysqli_error());
 																		
-										mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Edit Subject $subject_code')")or die(mysqli_error());
+										mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Edit Subject $subject_code')")or die(mysqli_error());
 										
 										?>
 										<script>

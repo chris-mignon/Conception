@@ -5,9 +5,9 @@
 		<?php include('navbar.php'); ?>
         <div class="container-fluid">
             <div class="row-fluid">
-				<?php include('department_sidebar.php'); ?>
+				<?php include('school_sidebar.php'); ?>
 				<div class="span3" id="adduser">
-				<?php include('edit_department_form.php'); ?>		   			
+				<?php include('edit_school_form.php'); ?>		   			
 				</div>
                 <div class="span6" id="">
                      <div class="row-fluid">
@@ -33,19 +33,19 @@
 										</thead>
 										<tbody>
 													<?php
-													$user_query = mysqli_query($conn,"select * from department")or die(mysqli_error());
+													$user_query = mysqli_query($conn,"select * from school")or die(mysqli_error());
 													while($row = mysqli_fetch_array($user_query)){
-													$id = $row['department_id'];
+													$id = $row['school_id'];
 													?>
 									
 													<tr>
 														<td width="30">
 														<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 														</td>
-														<td><?php echo $row['department_name']; ?></td>
-														<td><?php echo $row['dean']; ?></td>
+														<td><?php echo $row['school_name']; ?></td>
+														<td><?php echo $row['principal']; ?></td>
 												
-														<td width="30"><a href="edit_department.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil icon-large"></i></a></td>
+														<td width="30"><a href="edit_school.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil icon-large"></i></a></td>
 
                                
 													</tr>
