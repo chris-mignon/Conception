@@ -29,7 +29,7 @@
 										<tbody>
 											
                               		<?php
-										$query = mysqli_query($conn,"SELECT * from activity_log order by time DESC")or die(mysqli_error());
+										$query = mysqli_query($conn,"SELECT * from activity_log order by activity_log_id DESC")or die(mysqli_error());
 										while($row = mysqli_fetch_array($query)){
 									?>
 							
