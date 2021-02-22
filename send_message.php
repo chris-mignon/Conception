@@ -5,11 +5,11 @@ $teacher_id = $_POST['teacher_id'];
 $my_message = $_POST['my_message'];
 
 
-$query = mysqli_query($conn,"select * from teacher where teacher_id = '$teacher_id'")or die(mysqli_error());
+$query = mysqli_query($conn,"select * from users where user_id = '$teacher_id'")or die(mysqli_error());
 $row = mysqli_fetch_array($query);
 $name = $row['firstname']." ".$row['lastname'];
 
-$query1 = mysqli_query($conn,"select * from teacher where teacher_id = '$session_id'")or die(mysqli_error());
+$query1 = mysqli_query($conn,"select * from users where user_id = '$session_id'")or die(mysqli_error());
 $row1 = mysqli_fetch_array($query1);
 $name1 = $row1['firstname']." ".$row1['lastname'];
 

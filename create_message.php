@@ -25,12 +25,12 @@
                                             <select name="teacher_id"  class="chzn-select" required>
                                              	<option></option>
 											<?php
-											$query = mysqli_query($conn,"select * from teacher order by firstname");
+											$query = mysqli_query($conn,"select * from users where user_role ='3' order by firstname");
 											while($row = mysqli_fetch_array($query)){
 											
 											?>
 											
-											<option value="<?php echo $row['teacher_id']; ?>"><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?> </option>
+											<option value="<?php echo $row['user_id']; ?>"><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?> </option>
 											
 											<?php } ?>
                                             </select>

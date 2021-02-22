@@ -6,6 +6,8 @@
                             <div class="block-content collapse in">
                                 <div class="span12">
 								<form method="post" id="add_class">
+
+
 										<div class="control-group">
 											<label>Class Name:</label>
                                           <div class="controls">
@@ -38,17 +40,24 @@
                                             </select>
                                           </div>
                                         </div>
-										
+										<!--  -->
 										<div class="control-group">
-											<label>School Year:</label>
+											<label>School year:</label>
                                           <div class="controls">
+                                            <select name="school_year"  class="" required>
+                                             	<option></option>
 											<?php
 											$query = mysqli_query($conn,"select * from school_year order by school_year DESC");
-											$row = mysqli_fetch_array($query);
+											while($row = mysqli_fetch_array($query)){
+											
 											?>
-											<input id="" class="span5" type="text" class="" name="school_year" value="<?php  echo $row['school_year']; ?>" >
+											<option value="<?php echo $row['school_year_id']; ?>"><?php echo $row['school_year']; ?></option>
+											<?php } ?>
+                                            </select>
                                           </div>
                                         </div>
+								
+
 											<div class="control-group">
                                           <div class="controls">
 												<button name="save" class="btn btn-success"><i class="icon-save"></i> Save</button>
@@ -72,7 +81,7 @@
 						$.jGrowl("Class Already Exist", { header: 'Add Class Failed' });
 						}else{
 							$.jGrowl("Classs Successfully  Added", { header: 'Class Added' });
-							var delay = 500;
+							var delay = 2000;
 							setTimeout(function(){ window.location = 'dasboard_teacher.php'  }, delay);  
 						}
 						}

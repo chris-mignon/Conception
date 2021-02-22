@@ -49,7 +49,8 @@
 					LEFT JOIN assignment on assignment.assignment_id = teacher_notification.assignment_id 
 					LEFT JOIN class on teacher_class.class_id = class.class_id
 					LEFT JOIN subject on teacher_class.subject_id = subject.subject_id
-					where teacher_class.teacher_id = '$session_id'  order by  teacher_notification.date_of_notification DESC
+					left join teacher on teacher_class.teacher_id = teacher.teacher_id
+					where teacher.user_id = '$session_id'  order by  teacher_notification.date_of_notification DESC
 					")or die(mysqli_error());
 					$count = mysqli_num_rows($query);
 					while($row = mysqli_fetch_array($query)){
@@ -58,7 +59,7 @@
 					$id = $row['teacher_notification_id'];
 					
 					
-					$query_yes_read = mysqli_query($conn,"select * from notification_read_teacher where notification_id = '$id' and teacher_id = '$session_id'")or die(mysqli_error());
+					$query_yes_read = mysqli_query($conn,"select * from notification_read_teacher left join teacher on notification_read_teacher.teacher_id = teacher.teacher_id where notification_id = '$id' and teacher.user_id = '$session_id'")or die(mysqli_error());
 					$read_row = mysqli_fetch_array($query_yes_read);
 					
 					$yes = $read_row['student_read']; 
