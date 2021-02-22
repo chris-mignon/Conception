@@ -12,22 +12,22 @@
                             <a href="admin_user.php"><i class="icon-chevron-right"></i><i class="icon-user"></i> Admin Users</a>
                         </li>
                         <!--  -->
-                        <li>
+                        <li  >
                             <a href="teachers.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Teachers</a>
                         </li>
                             <!--  -->
 
-                            <li >
+                            <li>
                             <a href="students.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Students</a>
                         </li>
 
-                        <li >
+                        <li>
                             <a href="school.php"><i class="icon-chevron-right"></i><i class="icon-building"></i> Schools</a>
                         </li>
-                        <li >
+                        <li>
                             <a href="class.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Classes</a>
                         </li>
-						<li  >
+						<li>
                             <a href="subjects.php"><i class="icon-chevron-right"></i><i class="icon-list-alt"></i> Subjects</a>
                         </li>
 					
@@ -35,10 +35,10 @@
 						
 				
 						
-						<li  >
+						<li>
                             <a href="downloadable.php"><i class="icon-chevron-right"></i><i class="icon-download"></i> Downloadable Materials</a>
                         </li>
-						<li  class ="active" >
+						<li>
                             <a href="assignment.php"><i class="icon-chevron-right"></i><i class="icon-upload"></i> Uploaded Assignments</a>
                         </li>
 						<li>
@@ -47,16 +47,16 @@
                         <li>
                             <a href="activity_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Activity Logs</a>
                         </li>
-						<li>
+						<li class ="active">
                             <a href="admin_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Admin Logs</a>
                         </li>
-						<li>
-                            <a href="activity_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> teacher Logs</a>
+						<li >
+                            <a href="teacher_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> teacher Logs</a>
                         </li>
                         <li >
                             <a href="student_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> students Logs</a>
                         </li>
-						<li>
+						<li >
                             <a href="school_year.php"><i class="icon-chevron-right"></i><i class="icon-calendar"></i> School Year</a>
                         </li>
 						<li>

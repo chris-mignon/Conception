@@ -38,20 +38,20 @@
 						<li  >
                             <a href="downloadable.php"><i class="icon-chevron-right"></i><i class="icon-download"></i> Downloadable Materials</a>
                         </li>
-						<li  class ="active" >
+						<li   >
                             <a href="assignment.php"><i class="icon-chevron-right"></i><i class="icon-upload"></i> Uploaded Assignments</a>
                         </li>
-						<li>
+						<li >
                             <a href="content.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Content</a>
                         </li>
-                        <li>
+                        <li >
                             <a href="activity_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Activity Logs</a>
                         </li>
-						<li>
+						<li >
                             <a href="admin_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Admin Logs</a>
                         </li>
-						<li>
-                            <a href="activity_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> teacher Logs</a>
+						<li class ="active">
+                            <a href="teacher_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> teacher Logs</a>
                         </li>
                         <li >
                             <a href="student_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> students Logs</a>

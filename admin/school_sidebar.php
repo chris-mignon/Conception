@@ -21,13 +21,13 @@
                             <a href="students.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Students</a>
                         </li>
 
-                        <li >
+                        <li class ="active">
                             <a href="school.php"><i class="icon-chevron-right"></i><i class="icon-building"></i> Schools</a>
                         </li>
-                        <li >
+                        <li>
                             <a href="class.php"><i class="icon-chevron-right"></i><i class="icon-group"></i> Classes</a>
                         </li>
-						<li  >
+						<li>
                             <a href="subjects.php"><i class="icon-chevron-right"></i><i class="icon-list-alt"></i> Subjects</a>
                         </li>
 					
@@ -35,10 +35,10 @@
 						
 				
 						
-						<li  >
+						<li>
                             <a href="downloadable.php"><i class="icon-chevron-right"></i><i class="icon-download"></i> Downloadable Materials</a>
                         </li>
-						<li  class ="active" >
+						<li>
                             <a href="assignment.php"><i class="icon-chevron-right"></i><i class="icon-upload"></i> Uploaded Assignments</a>
                         </li>
 						<li>
