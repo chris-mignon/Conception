@@ -2,7 +2,7 @@
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Add User</div>
+                                <div class="muted pull-left">Add Administrator</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
@@ -52,7 +52,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 
-$query = mysqli_query($conn,"select * from users where username = '$username' and password = '$password' and firstname = '$firstname' and password = '$password' ")or die(mysqli_error());
+$query = mysqli_query($conn,"select * from admin where username = '$username' and password = '$password' and firstname = '$firstname' and password = '$password' ")or die(mysqli_error());
 $count = mysqli_num_rows($query);
 
 if ($count > 0){ ?>
@@ -61,9 +61,9 @@ alert('Data Already Exist');
 </script>
 <?php
 }else{
-mysqli_query($conn,"insert into users (username,password,firstname,lastname) values('$username','$password','$firstname','$lastname')")or die(mysqli_error());
+mysqli_query($conn,"insert into admin (username,password,firstname,lastname) values('$username','$password','$firstname','$lastname')")or die(mysqli_error());
 
-mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Add User $username')")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Add Administrator $username')")or die(mysqli_error());
 ?>
 <script>
 window.location = "admin_user.php";
