@@ -18,18 +18,18 @@
 						
 										<thead>
 										        <tr>
-
-												<th>Date</th>
+                                                
+												<th>Time</th>
 												<th>User</th>
 												<th>Action</th>
-									
+                                                
 												</tr>
 												
 										</thead>
 										<tbody>
 											
                               		<?php
-										$query = mysqli_query($conn,"select * from  activity_log")or die(mysqli_error());
+										$query = mysqli_query($conn,"SELECT * from activity_log order by time DESC")or die(mysqli_error());
 										while($row = mysqli_fetch_array($query)){
 									?>
 							
@@ -38,7 +38,7 @@
                               
 										<tr>
 
-                                         <td><?php  echo $row['date']; ?></td>
+                                         <td><?php  echo $row['time']; ?></td>
                                          <td><?php echo $row['username']; ?></td>
                                          <td><?php echo $row['action']; ?></td>
                                   

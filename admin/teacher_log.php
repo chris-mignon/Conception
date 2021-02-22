@@ -11,7 +11,7 @@
                         <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">students Log List</div>
+                                <div class="muted pull-left">Teachers Log </div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
@@ -21,23 +21,28 @@
 										  <tr>
 												<th>Login time</th>
 												<th>Logout time</th>
+												<th>Firstname</th>
+												<th>Lastname</th>
 												<th>Username</th>
-												
+												<th>Teacher ID</th>
 											
 										   </tr>
 										</thead>
 										<tbody>
 													<?php
-													$student_query = mysqli_query($conn,"select * from student_log order by student_log_id ")or die(mysqli_error());
+													$student_query = mysqli_query($conn,"SELECT * from teacher_log LEFT JOIN teacher on teacher_log.teacher_id = teacher.teacher_id   ")or die(mysqli_error());
 													while($row = mysqli_fetch_array($student_query)){
-													$id = $row['student_log_id'];
+													$id = $row['log_id'];
 													?>
 									
 												<tr>
 											
-												<td><?php echo $row['login_date']; ?></td>
-												<td><?php echo $row['logout_date']; ?></td>
+												<td><?php echo $row['login_time']; ?></td>
+												<td><?php echo $row['logout_time']; ?></td>
+												<td><?php echo $row['firstname']; ?></td>
+												<td><?php echo $row['Lastname']; ?></td>
 												<td><?php echo $row['username']; ?></td>
+												<td><?php echo $row['teacher_id']; ?></td>
 												</tr>
 												<?php } ?>
 										</tbody>

@@ -9,13 +9,13 @@
 								<form method="post">
 										<div class="control-group">
                                           <div class="controls">
-                                            <input class="input focused" id="focusedInput" name="d" type="text" placeholder = "School Name">
+                                            <input class="input focused" id="focusedInput" name="school_name" type="text" placeholder = "School Name">
                                           </div>
                                         </div>
 										
 										<div class="control-group">
                                           <div class="controls">
-                                            <input class="input focused" id="focusedInput" name="pi" type="text" placeholder = "Principal">
+                                            <input class="input focused" id="focusedInput" name="principal" type="text" placeholder = "Principal">
                                           </div>
                                         </div>
 								
@@ -35,11 +35,11 @@
 					
 					<?php
 if (isset($_POST['save'])){
-$pi = $_POST['pi'];
-$d = $_POST['d'];
+$principal = $_POST['principal'];
+$school_name = $_POST['school_name'];
 
 
-$query = mysqli_query($conn,"select * from department where department_name = '$d' and dean = '$pi' ")or die(mysqli_error());
+$query = mysqli_query($conn,"select * from school where school_name = '$school_name' and principal = '$principal' ")or die(mysqli_error());
 $count = mysqli_num_rows($query);
 
 if ($count > 0){ ?>
@@ -48,10 +48,11 @@ alert('Data Already Exist');
 </script>
 <?php
 }else{
-mysqli_query($conn,"insert into department (department_name,dean) values('$d','$pi')")or die(mysqli_error());
+mysqli_query($conn,"insert into school (school_name,principal) values('$school_name','$principal')")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Add School $school_name')")or die(mysqli_error());
 ?>
 <script>
-window.location = "department.php";
+window.location = "school.php";
 </script>
 <?php
 }
