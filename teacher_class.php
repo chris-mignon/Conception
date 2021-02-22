@@ -1,10 +1,7 @@
 			
 						
 						<ul	 id="da-thumbs" class="da-thumbs">
-										<?php $query = mysqli_query($conn,"select * from teacher_class
-										LEFT JOIN class ON class.class_id = teacher_class.class_id
-										LEFT JOIN subject ON subject.subject_id = teacher_class.subject_id
-										where teacher_id = '$session_id' and school_year = '$school_year' ")or die(mysqli_error());
+										<?php $query = mysqli_query($conn,"SELECT  teacher.teacher_id, teacher.user_id, teacher_class.teacher_class_id, teacher_class.teacher_id, teacher_class.class_id, teacher_class.subject_id, teacher_class.thumbnails, teacher_class.school_year, SUBJECT.subject_id, SUBJECT.subject_code, SUBJECT.subject_title, SUBJECT.category, SUBJECT.description, class.class_name, class.class_name FROM teacher_class LEFT JOIN teacher ON teacher_class.teacher_id = teacher.teacher_id LEFT JOIN class ON teacher_class.class_id = class.class_id LEFT JOIN SUBJECT ON teacher_class.subject_id = SUBJECT.subject_id WHERE teacher.user_id = '$session_id' and teacher_class.school_year = '$school_year_id' ")or die(mysqli_error());
 										$count = mysqli_num_rows($query);
 										
 										if ($count > 0){

@@ -6,7 +6,8 @@
 				
 					<?php $query_yes = mysqli_query($conn,"select * from teacher_notification
 					LEFT JOIN notification_read_teacher on teacher_notification.teacher_notification_id =  notification_read_teacher.notification_id
-					where teacher_id = '$session_id' 
+					left join teacher on notification_read_teacher.teacher_id = teacher.teacher_id
+					where teacher.user_id = '$session_id' 
 					")or die(mysqli_error());
 					$count_no = mysqli_num_rows($query_yes);
 		            ?>
@@ -16,7 +17,8 @@
 					LEFT JOIN assignment on assignment.assignment_id = teacher_notification.assignment_id 
 					LEFT JOIN class on teacher_class.class_id = class.class_id
 					LEFT JOIN subject on teacher_class.subject_id = subject.subject_id
-					where teacher_class.teacher_id = '$session_id' 
+					left join teacher on teacher_class.teacher_id = teacher.teacher_id
+					where teacher.user_id = '$session_id' 
 					")or die(mysqli_error());
 					$count = mysqli_num_rows($query);
 		            ?>
