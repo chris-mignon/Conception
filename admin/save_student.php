@@ -1,12 +1,14 @@
 <?php
 include('dbcon.php');
         
-               $un = $_POST['un'];
-               $fn = $_POST['fn'];
-               $ln = $_POST['ln'];
-               $class_id = $_POST['class_id'];
+                
+               $firstname = $_POST['firstname'];
+               $lastname = $_POST['lastname'];
+               $username = $_POST['username'];
+               $password= $_POST['password'];
+               $class_id= $_POST['class_id'];
 
-               mysqli_query($conn,"insert into student (username,firstname,lastname,location,class_id,status)
-		values ('$un','$fn','$ln','uploads/NO-IMAGE-AVAILABLE.jpg','$class_id','Unregistered')                                    
+               mysqli_query($conn,"insert into student (firstname,lastname,class_id,username,password,picture,status)
+		values ( '$firstname', '$lastname', '$class_id','$username','$password','uploads/NO-IMAGE-AVAILABLE.jpg','2')                                    
 		") or die(mysqli_error()); ?>
 <?php    ?>

@@ -13,7 +13,7 @@ $id = $row['student_id'];
 
 $count = mysqli_num_rows($query);
 if ($count > 0){
-	mysqli_query($conn,"update student set password = '$password', status = 'Registered' where student_id = '$id'")or die(mysqli_error());
+	mysqli_query($conn,"update student set password = '$password', status = '1' where student_id = '$id'")or die(mysqli_error());
 	$_SESSION['id']=$id;
 	echo 'true';
 }else{
