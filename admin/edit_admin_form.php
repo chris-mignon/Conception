@@ -1,5 +1,5 @@
 <div class="row-fluid">
-<a href="admin_user.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add user</a>
+<a href="admin_user.php" class="btn btn-info"><i class="icon-plus-sign icon-large"></i> Add Admin</a>
 <!-- block -->
 <div class="block">
 <div class="navbar navbar-inner block-header">

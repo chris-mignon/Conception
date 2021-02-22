@@ -14,7 +14,7 @@
 <!-- block -->
 <div id="block_bg" class="block">
 <div class="navbar navbar-inner block-header">
-<div class="muted pull-left">Admin Users List</div>
+<div class="muted pull-left">List of Administrative Users</div>
 </div>
 <div class="block-content collapse in">
 <div class="span12">
@@ -27,7 +27,7 @@
 <th></th>
 <th> ID </th>
 <th>Name</th>
-<th>Username</th>
+<th>Lastname </th>
 
 <th></th>
 </tr>
@@ -43,9 +43,9 @@ $id = $row['user_id'];
 <td width="30">
 <input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 </td>
-<td><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></td>
-
-<td><?php echo $row['username']; ?></td>
+<td><?php echo $row['user_id']; ?> </td>
+<td><?php echo $row['firstname']; ?> </td>
+<td><?php echo $row['lastname']; ?> </td>
 
 <td width="40">
 <a href="edit_user.php<?php echo '?id='.$id; ?>"  data-toggle="modal" class="btn btn-success"><i class="icon-pencil icon-large"></i></a>
