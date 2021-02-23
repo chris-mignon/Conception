@@ -72,7 +72,7 @@
 								
 										<tr>
 										<input type="hidden" name="test" value="<?php echo $a; ?>">
-                                        <td width="70"><img  class="img-rounded" src="admin/<?php echo $row['location']; ?>" height="50" width="40"></td>
+                                        <td width="70"><img  class="img-rounded" src="admin/<?php echo $row['picture']; ?>" height="50" width="40"></td>
                                         <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 
 										<td><?php echo $row['class_name']; ?></td> 
 								
