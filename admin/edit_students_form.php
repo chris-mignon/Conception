@@ -100,7 +100,7 @@ $password = $_POST['password'];
 $stat = $_POST['status'];
 
 mysqli_query($conn,"update student set username = '$username' , password = '$password',firstname ='$firstname' , lastname = '$lastname' , class_id = '$class', status ='$stat' where student_id = '$get_id' ")or die(mysqli_error());
-
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Edit Student $firstname $lastname , Student ID: $get_id')")or die(mysqli_error());
 ?>
 
 <script>

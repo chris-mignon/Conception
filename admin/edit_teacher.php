@@ -36,7 +36,7 @@
     </thead>
     <tbody>
     <?php
-    $teacher_query = mysqli_query($conn,"select * from teacher LEFT JOIN teacher_status on teacher.teacher_status = teacher_status.status_id LEFT JOIN School on teacher.school_id = school.school_id") or die(mysqli_error());
+    $teacher_query = mysqli_query($conn,"select * from teacher LEFT JOIN teacher_status on teacher.teacher_status = teacher_status.status_id LEFT JOIN School on teacher.school_id = school.school_id where teacher_id = '$get_id'") or die(mysqli_error());
     while ($row = mysqli_fetch_array($teacher_query)) {
     $id = $row['teacher_id'];
     $teacher_status = $row['teacher_status'];

@@ -87,7 +87,7 @@ $pasword = $_POST['password'];
 $school_id = $_POST['school'];
 
 mysqli_query($conn," update teacher set firstname = '$firstname', lastname = '$lastname', username = '$username', password = '$pasword',school_id = '$school_id' where teacher_id = '$get_id'" )or die(mysqli_error());	
-
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Edit Teacher $firstname $lastname')")or die(mysqli_error());
 ?>
 <script>
 window.location = "teachers.php"; 

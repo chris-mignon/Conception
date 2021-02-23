@@ -83,7 +83,9 @@ alert('Data Already Exist');
 
 mysqli_query($conn,"insert into teacher (firstname,lastname,picture,school_id,teacher_status)
 values ('$firstname','$lastname','uploads/NO-IMAGE-AVAILABLE.jpg','$school_id','2')         
-") or die(mysqli_error()); ?>
+") or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Add teacher, $firstname $lastname')")or die(mysqli_error());
+?>
 <script>
 window.location = "teachers.php"; 
 </script>
