@@ -19,24 +19,25 @@
 								
 										<thead>
 										  <tr>
-												<th>Login time</th>
-												<th>Logout time</th>
-												<th>Firstname</th>
-												<th>Lastname</th>
-												<th>Username</th>
-												<th>Teacher ID</th>
-											
+										  <th> ID </th>
+											<th>Login time</th>
+											<th>Logout time</th>
+											<th>Firstname</th>
+											<th>Lastname</th>
+											<th>Username</th>
+											<th>Teacher ID</th>
+										
 										   </tr>
 										</thead>
 										<tbody>
 													<?php
-													$student_query = mysqli_query($conn,"SELECT * from teacher_log LEFT JOIN teacher on teacher_log.teacher_id = teacher.teacher_id   ")or die(mysqli_error());
+													$student_query = mysqli_query($conn,"SELECT * from teacher_log LEFT JOIN teacher on teacher_log.teacher_id = teacher.teacher_id ORDER BY log_id DESC  ")or die(mysqli_error());
 													while($row = mysqli_fetch_array($student_query)){
 													$id = $row['log_id'];
 													?>
 									
 												<tr>
-											
+												<td><?php echo $row['log_id']; ?></td>
 												<td><?php echo $row['login_time']; ?></td>
 												<td><?php echo $row['logout_time']; ?></td>
 												<td><?php echo $row['firstname']; ?></td>

@@ -19,6 +19,7 @@
 								
 										<thead>
 										  <tr>
+										  		<th> ID </th>
 												<th>login time</th>
 												<th>Logout time</th>
 												<th>Firstname</th>
@@ -29,13 +30,13 @@
 										</thead>
 										<tbody>
 													<?php
-													$user_query = mysqli_query($conn,"select user_log.login_time,user_log.logout_time, admin.firstname,admin.lastname from user_log LEFT JOIN admin ON user_log.user_id = admin.user_id order by user_log_id ")or die(mysqli_error());
+													$user_query = mysqli_query($conn,"SELECT * from admin_log LEFT JOIN admin ON admin_log.user_id = admin.user_id order by log_id DESC")or die(mysqli_error());
 													while($row = mysqli_fetch_array($user_query)){
 													//$id = $row['log_id'];
 													?>
 									
 												<tr>
-											
+												<td><?php echo $row['log_id']; ?></td>
 												<td><?php echo $row['login_time']; ?></td>
 												<td><?php echo $row['logout_time']; ?></td>
 												<td><?php echo $row['firstname']; ?></td>
