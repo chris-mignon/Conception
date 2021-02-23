@@ -31,8 +31,8 @@
 										</thead>
 										<tbody>
 													<?php
-													$student_query = mysqli_query($conn,"SELECT * from teacher_log LEFT JOIN teacher on teacher_log.teacher_id = teacher.teacher_id ORDER BY log_id DESC  ")or die(mysqli_error());
-													while($row = mysqli_fetch_array($student_query)){
+													$tl_query = mysqli_query($conn,"SELECT * from teacher_log LEFT JOIN teacher on teacher_log.teacher_id = teacher.teacher_id ORDER BY log_id DESC  ")or die(mysqli_error());
+													while($row = mysqli_fetch_array($tl_query)){
 													$id = $row['log_id'];
 													?>
 									
