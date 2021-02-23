@@ -49,7 +49,7 @@
 														
 											<li id="del<?php echo $id; ?>">
 												<a  class="classmate_cursor" href="#">
-														<img id="student_avatar_class" src ="admin/<?php echo $row['location'] ?>" width="124" height="140" class="img-polaroid">
+														<img id="student_avatar_class" src ="admin/<?php echo $row['picture'] ?>" width="124" height="140" class="img-polaroid">
 													<div><span></span></div>
 												</a>
 												<p class="class"><?php echo $row['lastname'];?></p>

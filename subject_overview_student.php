@@ -46,7 +46,7 @@
 										
 										Instructor: <strong><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></strong>
 															<br>
-															<img id="avatar" class="img-polaroid" src="admin/<?php echo $row['location']; ?>" width>
+															<img id="avatar" class="img-polaroid" src="admin/<?php echo $row['picture']; ?>" width>
 															<p><a href=""><i class="icon-search"></i> view info</a></p>
 															<hr>
 										<?php $query = mysqli_query($conn,"select * from teacher_class
