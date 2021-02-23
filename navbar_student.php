@@ -17,7 +17,7 @@
 										<li><a tabindex="-1" href="#myModal_student" data-toggle="modal"><i class="icon-picture"></i> Change Avatar</a></li>
 										<li class="divider"></li>
 										<li>
-											<a tabindex="-1" href="logout.php"><i class="icon-signout"></i>&nbsp;Logout</a>
+											<a tabindex="-1" href="logout_student.php"><i class="icon-signout"></i>&nbsp;Logout</a>
 										</li>
 									</ul>
 							</li>

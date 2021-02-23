@@ -29,10 +29,6 @@
                             <a href="subjects.php"><i class="icon-chevron-right"></i><i class="icon-list-alt"></i> Subjects</a>
                         </li>
 					
-						
-						
-				
-						
 						<li  >
                             <a href="downloadable.php"><i class="icon-chevron-right"></i><i class="icon-download"></i> Downloadable Materials</a>
                         </li>
@@ -49,7 +45,7 @@
                             <a href="admin_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> Admin Logs</a>
                         </li>
 						<li>
-                            <a href="activity_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> teacher Logs</a>
+                            <a href="teacher_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> teacher Logs</a>
                         </li>
                         <li >
                             <a href="student_log.php"><i class="icon-chevron-right"></i><i class="icon-file"></i> students Logs</a>
