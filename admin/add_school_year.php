@@ -44,7 +44,7 @@ alert('Data Already Exist');
 }else{
 mysqli_query($conn,"insert into school_year (school_year) values('$school_year')")or die(mysqli_error());
 
-mysqli_query($conn,"insert into activity_log (date,username,action) values(NOW(),'$user_username','Add School Year $school_year')")or die(mysqli_error());
+mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$user_username','Add School Year $school_year')")or die(mysqli_error());
 ?>
 <script>
 window.location = "school_year.php";

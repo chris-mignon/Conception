@@ -24,19 +24,20 @@
 									<?php include('modal_delete.php'); ?>
 										<thead>
 										  <tr>
-												    <th></th>
-												
-													<th>Name</th>
-													<th>ID Number</th>
-											
-													<th>Course Yr & Section</th>
-													<th></th>
+										<th></th>
+									
+										<th>ID </th>
+										<th> Photo </th>
+										<th>Name</th>
+										<th>Class</th>
+										<th>Status</th>
+										<th></th>
 										   </tr>
 										</thead>
 										<tbody>
 											
                                          <?php
-                                    $query = mysqli_query($conn,"select * from student LEFT JOIN class ON class.class_id = student.class_id ORDER BY student.student_id DESC") or die(mysqli_error());
+                                    $query = mysqli_query($conn,"select * from student LEFT JOIN class ON class.class_id = student.class_id LEFT JOIN student_status on student.status = student_status.status_id  where student.student_id = '$get_id'") or die(mysqli_error());
                                     while ($row = mysqli_fetch_array($query)) {
                                         $id = $row['student_id'];
                                         ?>
@@ -45,11 +46,12 @@
 										<td width="30">
 										<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 										</td>
-         
+										<td><?php echo $row['student_id']; ?></td>
+										<td width="40"><img class="img-circle" src="<?php echo $row['picture']; ?>" height="50" width="50"></td>
                                         <td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 
-										<td><?php echo $row['username']; ?></td> 
-								 
+														
 										<td width="100"><?php echo $row['class_name']; ?></td> 
+										<td width="100"><?php echo $row['status_name']; ?></td> 
 
 										<td width="30"><a href="edit_student.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil"></i> </a></td>
 									 
