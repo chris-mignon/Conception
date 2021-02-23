@@ -41,7 +41,7 @@
 												<td><?php echo $row['login_time']; ?></td>
 												<td><?php echo $row['logout_time']; ?></td>
 												<td><?php echo $row['firstname']; ?></td>
-												<td><?php echo $row['Lastname']; ?></td>
+												<td><?php echo $row['lastname']; ?></td>
 												<td><?php echo $row['username']; ?></td>
 												<td><?php echo $row['teacher_id']; ?></td>
 												</tr>

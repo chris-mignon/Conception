@@ -14,6 +14,7 @@ $id = $row['teacher_id'];
 $count = mysqli_num_rows($query);
 if ($count > 0){
 	mysqli_query($conn,"update teacher set username='$username',password = '$password', teacher_status = '1' where teacher_id = '$id'")or die(mysqli_error());
+	mysqli_query($conn,"insert into activity_log (time,username,action) values(NOW(),'$username','Teacher signup: $firstname $lastname')")or die(mysqli_error());
 	$_SESSION['id']=$id;
 	echo 'true';
 }else{
