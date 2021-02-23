@@ -3,13 +3,13 @@
 					<input type="text" class="input-block-level"  name="firstname" placeholder="Firstname" required>
 					<input type="text" class="input-block-level"  name="lastname" placeholder="Lastname" required>
 					<label>School</label>
-					<select name="department_id" class="input-block-level span12">
+					<select name="school_id" class="input-block-level span12">
 						<option></option>
 						<?php
-						$query = mysqli_query($conn,"select * from department order by department_name ")or die(mysqli_error());
+						$query = mysqli_query($conn,"select * from school order by school_name ")or die(mysqli_error());
 						while($row = mysqli_fetch_array($query)){
 						?>
-						<option value="<?php echo $row['department_id'] ?>"><?php echo $row['department_name']; ?></option>
+						<option value="<?php echo $row['school_id'] ?>"><?php echo $row['school_name']; ?></option>
 						<?php
 						}
 						?>
