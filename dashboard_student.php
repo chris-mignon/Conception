@@ -67,7 +67,7 @@
 								
 			
 									<?php }}else{ ?>
-									<div class="alert alert-info"><i class="icon-info-sign"></i> You are currently not enroll to your class</div>
+									<div class="alert alert-info"><i class="icon-info-sign"></i> You are currently not enrolled to your class</div>
 									<?php } ?>	
 									</ul>
 						
