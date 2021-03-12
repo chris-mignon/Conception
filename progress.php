@@ -52,7 +52,7 @@
 										LEFT JOIN student on student.student_id  = student_assignment.student_id
 										RIGHT JOIN assignment on student_assignment.assignment_id  = assignment.assignment_id
 										WHERE student_assignment.student_id = '$session_id'
-										order by fdatein DESC")or die(mysqli_error());
+										order by assignment_fdatein DESC")or die(mysqli_error());
 										while($row = mysqli_fetch_array($query)){
 										$id  = $row['student_assignment_id'];
 										$student_id = $row['student_id'];
