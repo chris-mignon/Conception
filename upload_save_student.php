@@ -46,7 +46,7 @@ if ($errflag) {
 	?>
 
    <script>
-   window.location = 'downloadable.php<?php echo '?id='.$get_id;  ?>';
+   window.location = 'downloadable_student.php<?php echo '?id='.$get_id;  ?>';
    </script>
    <?php exit();
 }
