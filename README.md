@@ -1,5 +1,5 @@
 # Conception 
-### Conception is an online Learniing Management system for secondary schools in Grenada. 
+### Conception is an online Learning Management System for secondary schools in Grenada. 
 
 <!-- ## Class practice No.1 First Android App 
 > In this Class practive we learned the following:
