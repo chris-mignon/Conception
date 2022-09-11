@@ -1,8 +1,15 @@
 <?php
 		include('admin/dbcon.php');
+
+
 		session_start();
+
+		
 		$username = $_POST['username'];
 		$password = $_POST['password'];
+
+
+
 		/* student */
 			$query = "SELECT * FROM student WHERE username='$username' AND password='$password'";
 			$result = mysqli_query($conn,$query)or die(mysqli_error());
