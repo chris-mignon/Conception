@@ -1,5 +1,6 @@
 # Conception LMS — Laravel Migration Scaffold
 [![CodeScan](https://github.com/chris-mignon/Conception/actions/workflows/codescan.yml/badge.svg)](https://github.com/chris-mignon/Conception/actions/workflows/codescan.yml)
+
 This repository is a **migration scaffold** to help convert the existing Conception PHP LMS into a Laravel application.
 It contains controllers, models, routes, Blade views, migrations and a .env example.
 
